@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hustlers FX | Worldwide</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07111f;color:white;font-family:Arial,sans-serif}
+header{background:#101e30;padding:20px;text-align:center}
+header h1{color:#20d69b;margin:0}
+nav{padding:15px;text-align:center;background:#15243a}
+nav a{color:white;margin:10px;text-decoration:none}
+main{padding:20px;max-width:800px;margin:auto}
+.card{background:#14243a;padding:20px;border-radius:12px;margin:15px 0}
+.balance{font-size:30px;color:#20d69b}
+select,button{padding:12px;border:0;border-radius:6px;margin:6px}
+button{background:#20d69b;color:#07111f;font-weight:bold}
+.sell{background:#ed6262}
+.price{font-size:23px}
+footer{text-align:center;padding:25px;color:#aab7c8}
+</style>
+</head>
+<body>
+<header>
+<h1>HUSTLERS FX</h1>
+<p>Worldwide Forex Learning & Demo Trading</p>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#markets">Markets</a>
+<a href="#about">About</a>
+</nav>
+<main id="home">
+<div class="card">
+<h2>Demo Trading Account</h2>
+<p>Virtual account balance</p>
+<div class="balance" id="balance">$10,000.00</div>
+<p>Demo account only. No real money.</p>
+</div>
+<div class="card" id="markets">
+<h2>Demo Market</h2>
+<select id="pair">
+<option>EUR/USD</option>
+<option>GBP/USD</option>
+<option>USD/JPY</option>
+<option>USD/KES</option>
+</select>
+<p class="price" id="price">1.0850</p>
+<p>Illustrative demo price — not a live market quote.</p>
+<button onclick="trade('BUY')">BUY DEMO</button>
+<button class="sell" onclick="trade('SELL')">SELL DEMO</button>
+<p id="message">Choose a currency pair to practise.</p>
+</div>
+<div class="card" id="about">
+<h2>About Hustlers FX</h2>
+<p>Learn about forex markets and practise trading with virtual funds.</p>
+<p>This is an educational simulation, not a licensed brokerage. No customer deposits or real-money trades are accepted.</p>
+</div>
+</main>
+<footer>© 2026 Hustlers FX | Worldwide</footer>
+<script>
+let balance=10000;
+function trade(type){
+let pair=document.getElementById('pair').value;
+let amount=100;
+if(balance<amount){
+document.getElementById('message').textContent="Insufficient demo funds.";
+return;
+}
+balance-=amount;
+document.getElementById('balance').textContent="$"+balance.toFixed(2);
+document.getElementById('message').textContent=type+" demo order placed for "+pair+" ($100 virtual).";
+}
+</script>
+</body>
+</html>
